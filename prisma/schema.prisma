@@ -7,8 +7,68 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
+enum Genre {
+  DUBSTEP
+  HOUSE
+  TECHNO
+  GARAGE
+  AMAPIANO
+  DONK
+  TRANCE
+  DRUM_AND_BASS
+  JUNGLE
+  FOOTWORK
+}
+
 model User {
-  id    Int     @id @default(autoincrement())
-  email String  @unique
-  name  String?
+  id        Int       @id @default(autoincrement())
+  email     String    @unique
+  name      String
+  bio       String?
+  updatedAt DateTime? @map("updated_at")
+  createdAt DateTime? @default(now()) @map("create_at")
+
+  //Prisma relations
+  events Event[]
+}
+
+model Location {
+  id           Int       @id @default(autoincrement())
+  addressLine1 String    @map("address_line_1")
+  addressLine2 String?   @map("address_line_2")
+  city         String
+  postcode     String?
+  lat          Float?
+  lng          Float?
+  updatedAt    DateTime? @map("updated_at")
+  createdAt    DateTime? @default(now()) @map("create_at")
+
+  vanues Venue[]
+}
+
+model Event {
+  id          Int       @id @default(autoincrement())
+  title       String
+  description String
+  startTime   DateTime  @map("start_time")
+  endTime     DateTime  @map("end_time")
+  updatedAt   DateTime? @map("updated_at")
+  createdAt   DateTime? @default(now()) @map("create_at")
+  genre       Genre
+
+  // fk relations
+  creator User @relation(fields: [userId], references: [id])
+  userId  Int
+
+  //prisma relations
+}
+
+model Venue {
+  id      Int     @id @default(autoincrement())
+  title   String
+  bio     String
+  website String?
+
+  location   Location @relation(fields: [locationId], references: [id])
+  locationId Int
 }

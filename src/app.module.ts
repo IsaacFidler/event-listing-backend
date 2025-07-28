@@ -5,6 +5,7 @@ import { join } from 'path';
 import { SharedConfigModule } from './shared/config/config.module';
 import { PrismaModule } from './prisma/prisma.module';
 import { UsersModule } from './users/users.module';
+import { EventsModule } from './events/events.module';
 
 @Module({
   imports: [
@@ -15,6 +16,7 @@ import { UsersModule } from './users/users.module';
     }),
     PrismaModule,
     UsersModule,
+    EventsModule,
   ],
 })
 export class AppModule {}
