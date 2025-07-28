@@ -59,7 +59,7 @@ Reusable NestJS backend boilerplate with GraphQL and Prisma.
    yarn start:dev
    ```
 
-The GraphQL Playground will be available at http://localhost:3000/graphql
+The GraphQL Playground will be available at <http://localhost:3000/graphql>
 
 ## Scripts
 
