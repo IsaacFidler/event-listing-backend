@@ -6,23 +6,23 @@ export class CreateEventInput {
   @Field()
   title: string;
 
-  @Field({ nullable: true })
-  description?: string;
-
   @Field()
+  description: string;
+
+  @Field(() => Date)
   startTime: Date;
 
-  @Field()
+  @Field(() => Date)
   endTime: Date;
 
-  @Field()
-  genre?: Genre;
+  @Field(() => Genre)
+  genre: Genre;
 
-  @Field(() => Int, { nullable: true })
+  @Field(() => Int)
   userId: number;
 
-  @Field(() => Int, { nullable: true })
-  locationId?: number;
+  @Field(() => Int)
+  locationId: number;
 
   @Field(() => [Int], { nullable: true })
   artistIds?: number[];

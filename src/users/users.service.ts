@@ -7,9 +7,12 @@ import { UpdateUserInput } from './dto/update-user.input';
 export class UsersService {
   constructor(private prisma: PrismaClient) {}
 
-  async create(data: CreateUserInput): Promise<PrismaUser> {
-    return this.prisma.user.create({ data });
+  async create(data: CreateUserInput) {
+    return data;
   }
+  // async create(data: CreateUserInput): Promise<PrismaUser> {
+  //   return data;
+  // }
 
   async findAll(): Promise<PrismaUser[]> {
     return this.prisma.user.findMany();

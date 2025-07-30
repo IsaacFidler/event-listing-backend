@@ -57,7 +57,7 @@
 
 ## 📋 Next Steps (In Progress)
 
-- [ ] Complete Events resolver and service
+- [x] Complete Events resolver and service for createEvent
 - [ ] Create Event entity
 - [ ] Add filtering capabilities (city, date, genre)
 - [ ] Test GraphQL queries and mutations
