@@ -37,13 +37,13 @@ export class Event {
   @Field(() => Date)
   updatedAt: Date;
 
-  // Add these fields for the relationships:
-  @Field(() => User)
-  creator: User;
+  // Fix these relationship fields:
+  @Field(() => User, { nullable: true })
+  creator?: User;
 
-  @Field(() => Location)
-  location: Location;
+  @Field(() => Location, { nullable: true })
+  location?: Location;
 
-  @Field(() => [Artist])
-  artists: Artist[];
+  @Field(() => [Artist], { nullable: true })
+  artists?: Artist[];
 }

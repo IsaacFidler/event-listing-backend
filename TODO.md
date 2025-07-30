@@ -102,6 +102,8 @@ query {
 
 - [x] - update events entity file with relations e.g location, creator, artists. create resoureces for each
 
+- [ ] look at single event query
+
 - [ ] Add filtering capabilities (city, date, genre)
 - [ ] Test GraphQL queries and mutations
 - [ ] Add pagination and search

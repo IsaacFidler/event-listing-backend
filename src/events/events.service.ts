@@ -31,6 +31,11 @@ export class EventsService {
       where: {
         id: id,
       },
+      include: {
+        creator: true,
+        location: true,
+        artists: true,
+      },
     });
   }
 
