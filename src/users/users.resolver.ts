@@ -19,9 +19,14 @@ export class UsersResolver {
   }
 
   @Mutation(() => User)
-  createUser(@Args('createUserInput') data: CreateUserInput): Promise<User> {
-    return this.usersService.create(data);
+  createUser(@Args('createUserInput') data: CreateUserInput) {
+    return data;
+    // return this.usersService.create(data);
   }
+  // @Mutation(() => User)
+  // createUser(@Args('createUserInput') data: CreateUserInput): Promise<User> {
+  //   // return this.usersService.create(data);
+  // }
 
   @Mutation(() => User)
   updateUser(

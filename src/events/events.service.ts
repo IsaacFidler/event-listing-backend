@@ -1,11 +1,12 @@
 import { Injectable } from '@nestjs/common';
 import { CreateEventInput } from './dto/create-event.input';
 import { UpdateEventInput } from './dto/update-event.input';
-import { PrismaService } from 'src/prisma.service';
+import { PrismaClient } from '@prisma/client';
 
 @Injectable()
 export class EventsService {
-  constructor(private prisma: PrismaService) {}
+  constructor(private prisma: PrismaClient) {}
+
   create(createEventInput: CreateEventInput) {
     const event = this.prisma.event.create({
       data: createEventInput,

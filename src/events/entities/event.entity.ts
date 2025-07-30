@@ -1,6 +1,6 @@
 import { ObjectType, Field, Int } from '@nestjs/graphql';
 import { Genre } from '@prisma/client';
-
+import '../enums/genre.enum';
 @ObjectType()
 export class Event {
   @Field(() => Int)

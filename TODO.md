@@ -58,7 +58,21 @@
 ## 📋 Next Steps (In Progress)
 
 - [x] Complete Events resolver and service for createEvent
-- [ ] Create Event entity
+- [x] Create Event entity
+- [x] create event type
+- [x] check why we need separate prisma service?
+
+  - Lifecycle Management: Automatically connects/disconnects
+    NestJS Integration: Better dependency injection
+    Error Handling: Built-in connection management
+    Testing: Easier to mock in tests
+
+- [x] Nest can't resolve dependencies of the EventsService error - went back to using prisma client instead of dedicated prisma service. then import prisma module in event module.
+- [x] registered genre enum in enum dir, genre.enum.ts file
+- [x] swap graphql ide port
+- [] test using graph ql IDE on localhost:3000/graphql
+-
+
 - [ ] Add filtering capabilities (city, date, genre)
 - [ ] Test GraphQL queries and mutations
 - [ ] Add pagination and search
