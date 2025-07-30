@@ -69,9 +69,38 @@
 
 - [x] Nest can't resolve dependencies of the EventsService error - went back to using prisma client instead of dedicated prisma service. then import prisma module in event module.
 - [x] registered genre enum in enum dir, genre.enum.ts file
-- [x] swap graphql ide port
-- [] test using graph ql IDE on localhost:3000/graphql
--
+- [x] swap graphql ide port to 4000
+- [x] test using graph ql IDE on localhost:3000/graphql
+- [x] test failed as no locationId on event table
+- [x] experiment with query - graphql will only return what you specify. you need to add include in the service method, and on in the graphql query
+
+```graphql
+query {
+  events {
+    id
+    title
+    description
+    genre
+    creator {
+      id
+      email
+      firstName
+      lastName
+    }
+    location {
+      id
+      city
+      addressLine1
+    }
+    artists {
+      id
+      artistName
+    }
+  }
+}
+```
+
+- [x] - update events entity file with relations e.g location, creator, artists. create resoureces for each
 
 - [ ] Add filtering capabilities (city, date, genre)
 - [ ] Test GraphQL queries and mutations

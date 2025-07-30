@@ -1,6 +1,10 @@
 import { ObjectType, Field, Int } from '@nestjs/graphql';
 import { Genre } from '@prisma/client';
 import '../enums/genre.enum';
+import { User } from 'src/users/entities/user.entity';
+import { Artist } from 'src/artists/entities/artist.entity';
+import { Location } from 'src/locations/entities/location.entity';
+
 @ObjectType()
 export class Event {
   @Field(() => Int)
@@ -32,4 +36,14 @@ export class Event {
 
   @Field(() => Date)
   updatedAt: Date;
+
+  // Add these fields for the relationships:
+  @Field(() => User)
+  creator: User;
+
+  @Field(() => Location)
+  location: Location;
+
+  @Field(() => [Artist])
+  artists: Artist[];
 }

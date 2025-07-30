@@ -5,7 +5,33 @@
 type User {
   id: Int!
   email: String!
-  name: String
+  firstName: String!
+  lastName: String!
+  username: String!
+  bio: String
+  updatedAt: DateTime
+  createdAt: DateTime
+}
+
+"""
+A date-time string at UTC, such as 2019-12-03T09:54:33Z, compliant with the date-time format.
+"""
+scalar DateTime
+
+type Artist {
+  id: Int!
+  firstName: String
+  lastName: String
+  artistName: String!
+  bio: String
+}
+
+type Location {
+  id: Int!
+  addressLine1: String!
+  addressLine2: String
+  city: String!
+  postcode: String
 }
 
 type Event {
@@ -19,12 +45,10 @@ type Event {
   locationId: Int!
   createdAt: DateTime!
   updatedAt: DateTime!
+  creator: User!
+  location: Location!
+  artists: [Artist!]!
 }
-
-"""
-A date-time string at UTC, such as 2019-12-03T09:54:33Z, compliant with the date-time format.
-"""
-scalar DateTime
 
 """Music genres for events"""
 enum Genre {

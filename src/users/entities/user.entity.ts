@@ -8,6 +8,21 @@ export class User {
   @Field()
   email: string;
 
+  @Field()
+  firstName: string;
+
+  @Field()
+  lastName: string;
+
+  @Field()
+  username: string;
+
   @Field({ nullable: true })
-  name?: string;
+  bio?: string;
+
+  @Field(() => Date, { nullable: true })
+  updatedAt?: Date;
+
+  @Field(() => Date, { nullable: true })
+  createdAt?: Date;
 }

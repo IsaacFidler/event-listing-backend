@@ -13,8 +13,9 @@ export class EventsResolver {
     return this.eventsService.create(createEventInput);
   }
 
+  // To this:
   @Query(() => [Event], { name: 'events' })
-  findAll() {
+  async findAll() {
     return this.eventsService.findAll();
   }
 
