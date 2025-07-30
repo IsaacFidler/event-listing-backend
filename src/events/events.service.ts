@@ -5,7 +5,7 @@ import { UpdateEventInput } from './dto/update-event.input';
 @Injectable()
 export class EventsService {
   create(createEventInput: CreateEventInput) {
-    return 'This action adds a new event';
+    return 'This action adds a new event' + JSON.stringify(createEventInput);
   }
 
   findAll() {
@@ -17,7 +17,9 @@ export class EventsService {
   }
 
   update(id: number, updateEventInput: UpdateEventInput) {
-    return `This action updates a #${id} event`;
+    return (
+      `This action updates a #${id} event` + JSON.stringify(updateEventInput)
+    );
   }
 
   remove(id: number) {
