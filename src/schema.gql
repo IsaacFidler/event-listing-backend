@@ -39,12 +39,13 @@ type Event {
   title: String!
   description: String!
   startTime: DateTime!
-  endTime: DateTime!
+  endTime: DateTime
   genre: Genre!
   userId: Int!
   locationId: Int!
   createdAt: DateTime!
-  updatedAt: DateTime!
+  updatedAt: DateTime
+  capacity: Int
   creator: User
   location: Location
   artists: [Artist!]

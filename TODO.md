@@ -101,6 +101,7 @@ query {
 ```
 
 - [x] - update events entity file with relations e.g location, creator, artists. create resoureces for each
+- [] - start consuming endpoints on the frontend. We have an event mutation, and a query. so we should be able to start
 
 - [ ] look at single event query
 

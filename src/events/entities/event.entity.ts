@@ -19,7 +19,7 @@ export class Event {
   @Field(() => Date)
   startTime: Date;
 
-  @Field(() => Date)
+  @Field(() => Date, { nullable: true })
   endTime: Date;
 
   @Field(() => Genre)
@@ -34,8 +34,11 @@ export class Event {
   @Field(() => Date)
   createdAt: Date;
 
-  @Field(() => Date)
-  updatedAt: Date;
+  @Field(() => Date, { nullable: true })
+  updatedAt?: Date;
+
+  @Field(() => Int, { nullable: true })
+  capacity?: number;
 
   // Fix these relationship fields:
   @Field(() => User, { nullable: true })
