@@ -26,6 +26,35 @@ export class EventsService {
     return events;
   }
 
+  async findAllWithFilters(filters: {
+    genre?: Genre;
+    userId?: number;
+    locationId?: number;
+  }) {
+    const where: any = {};
+
+    if (filters.genre) {
+      where.genre = filters.genre;
+    }
+
+    if (filters.userId) {
+      where.userId = filters.userId;
+    }
+
+    if (filters.locationId) {
+      where.locationId = filters.locationId;
+    }
+
+    return await this.prisma.event.findMany({
+      where,
+      include: {
+        creator: true,
+        location: true,
+        artists: true,
+      },
+    });
+  }
+
   async findOne(id: number) {
     return await this.prisma.event.findUnique({
       where: {
