@@ -1,7 +1,7 @@
 import { Injectable, Logger } from '@nestjs/common';
 import { CreateEventInput } from './dto/create-event.input';
 import { UpdateEventInput } from './dto/update-event.input';
-import { PrismaClient } from '@prisma/client';
+import { PrismaClient, Genre } from '@prisma/client';
 
 @Injectable()
 export class EventsService {
@@ -30,6 +30,19 @@ export class EventsService {
     return await this.prisma.event.findUnique({
       where: {
         id: id,
+      },
+      include: {
+        creator: true,
+        location: true,
+        artists: true,
+      },
+    });
+  }
+
+  async findAllByGenre(genre: Genre) {
+    return await this.prisma.event.findMany({
+      where: {
+        genre: genre,
       },
       include: {
         creator: true,

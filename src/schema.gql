@@ -70,6 +70,7 @@ type Query {
   user(id: Int!): User
   events: [Event!]!
   event(id: Int!): Event!
+  eventsByGenre(genre: Genre!): [Event!]!
 }
 
 type Mutation {
