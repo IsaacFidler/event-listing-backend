@@ -99,6 +99,7 @@ input CreateEventInput {
   genre: Genre!
   userId: Int!
   locationId: Int!
+  capacity: Int
   artistIds: [Int!]
 }
 
@@ -110,6 +111,7 @@ input UpdateEventInput {
   genre: Genre
   userId: Int
   locationId: Int
+  capacity: Int
   artistIds: [Int!]
   id: Int!
 }

@@ -24,6 +24,9 @@ export class CreateEventInput {
   @Field(() => Int)
   locationId: number;
 
+  @Field(() => Int, { nullable: true })
+  capacity?: number;
+
   @Field(() => [Int], { nullable: true })
   artistIds?: number[];
 }
