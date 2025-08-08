@@ -31,6 +31,7 @@ model User {
   createdAt DateTime? @default(now()) @map("create_at")
 
   artists Artist[]
+  reviews Review[]
 
   //Prisma relations
   registrations Registration[]
@@ -88,10 +89,14 @@ model Event {
   location   Location @relation(fields: [locationId], references: [id])
   locationId Int
 
+  venue   Venue @relation(fields: [venueId], references: [id])
+  venueId Int
+
   //prisma relations
 
   artists       Artist[]
   registrations Registration[]
+  reviews       Review[]
 }
 
 model Venue {
@@ -102,6 +107,8 @@ model Venue {
 
   location   Location @relation(fields: [locationId], references: [id])
   locationId Int
+
+  events Event[]
 }
 
 enum RegistrationStatus {
@@ -114,6 +121,21 @@ model Registration {
   id Int @id @default(autoincrement())
 
   status RegistrationStatus
+
+  user   User @relation(fields: [userId], references: [id])
+  userId Int
+
+  event   Event @relation(fields: [eventId], references: [id])
+  eventId Int
+
+  updatedAt DateTime? @map("updated_at")
+  createdAt DateTime? @default(now()) @map("create_at")
+}
+
+model Review {
+  id          Int    @id @default(autoincrement())
+  score       Int
+  description String
 
   user   User @relation(fields: [userId], references: [id])
   userId Int
