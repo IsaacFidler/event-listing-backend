@@ -85,6 +85,7 @@ type Query {
   events: [Event!]!
   event(id: Int!): Event!
   eventsByGenre(genre: Genre!): [Event!]!
+  registrations: [Registration!]!
   registration(id: Int!): Registration!
 }
 

@@ -16,7 +16,7 @@ export class RegistrationResolver {
     return this.registrationService.create(createRegistrationInput);
   }
 
-  @Query(() => [Registration], { name: 'registration' })
+  @Query(() => [Registration], { name: 'registrations' })
   findAll() {
     return this.registrationService.findAll();
   }
