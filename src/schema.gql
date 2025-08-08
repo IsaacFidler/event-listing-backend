@@ -65,12 +65,27 @@ enum Genre {
   FOOTWORK
 }
 
+type Registration {
+  id: Int!
+  status: RegistrationStatus!
+  user: User!
+  event: Event!
+}
+
+"""Registration status for events"""
+enum RegistrationStatus {
+  INTERESTED
+  ATTENDING
+  NOT_ATTENDING
+}
+
 type Query {
   users: [User!]!
   user(id: Int!): User
   events: [Event!]!
   event(id: Int!): Event!
   eventsByGenre(genre: Genre!): [Event!]!
+  registration(id: Int!): Registration!
 }
 
 type Mutation {
@@ -80,6 +95,9 @@ type Mutation {
   createEvent(createEventInput: CreateEventInput!): Event!
   updateEvent(updateEventInput: UpdateEventInput!): Event!
   removeEvent(id: Int!): Event!
+  createRegistration(createRegistrationInput: CreateRegistrationInput!): Registration!
+  updateRegistration(updateRegistrationInput: UpdateRegistrationInput!): Registration!
+  removeRegistration(id: Int!): Registration!
 }
 
 input CreateUserInput {
@@ -114,5 +132,18 @@ input UpdateEventInput {
   locationId: Int
   capacity: Int
   artistIds: [Int!]
+  id: Int!
+}
+
+input CreateRegistrationInput {
+  eventId: Int!
+  userId: Int!
+  status: RegistrationStatus!
+}
+
+input UpdateRegistrationInput {
+  eventId: Int
+  userId: Int
+  status: RegistrationStatus
   id: Int!
 }
