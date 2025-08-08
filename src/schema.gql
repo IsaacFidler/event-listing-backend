@@ -118,6 +118,7 @@ type Mutation {
   createRegistration(createRegistrationInput: CreateRegistrationInput!): Registration!
   updateRegistration(updateRegistrationInput: UpdateRegistrationInput!): Registration!
   removeRegistration(id: Int!): Registration!
+  createReview(createReviewInput: CreateReviewInput!): Review!
 }
 
 input CreateUserInput {
@@ -166,4 +167,16 @@ input UpdateRegistrationInput {
   userId: Int
   status: RegistrationStatus
   id: Int!
+}
+
+input CreateReviewInput {
+  """Score for event rating"""
+  score: Int!
+  description: String!
+
+  """Id of the user leaving the review"""
+  userId: Int!
+
+  """Id of the event the review is for"""
+  eventId: Int!
 }

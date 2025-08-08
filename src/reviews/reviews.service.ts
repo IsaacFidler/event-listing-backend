@@ -2,14 +2,17 @@ import { Injectable } from '@nestjs/common';
 // import { CreateReviewInput } from './dto/create-review.input';
 // import { UpdateReviewInput } from './dto/update-review.input';
 import { PrismaClient } from '@prisma/client';
+import { CreateReviewInput } from './dto/create-review.input';
 
 @Injectable()
 export class ReviewsService {
   // Dependency injection.
   constructor(private prisma: PrismaClient) {}
-  // create(createReviewInput: CreateReviewInput) {
-  //   return 'This action adds a new review';
-  // }
+  async create(createReviewInput: CreateReviewInput) {
+    return await this.prisma.review.create({
+      data: createReviewInput,
+    });
+  }
 
   findAll() {
     return `This action returns all reviews`;
@@ -19,6 +22,10 @@ export class ReviewsService {
     return await this.prisma.review.findUnique({
       where: {
         id,
+      },
+      include: {
+        user: true,
+        event: true,
       },
     });
   }

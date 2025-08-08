@@ -14,8 +14,8 @@ export class Review {
   description: string;
 
   @Field(() => Event, { description: 'review description' })
-  event: string;
+  event: Event;
 
   @Field(() => User, { description: 'review description' })
-  user: string;
+  user: User;
 }
