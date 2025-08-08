@@ -32,6 +32,14 @@ export class EventsResolver {
     return this.eventsService.findAllByGenre(genre);
   }
 
+  @Query(() => [Event], { name: 'eventsByDateRange' })
+  async findAllByDateRange(
+    @Args('startDate', { type: () => Date }) startDate: Date,
+    @Args('endDate', { type: () => Date }) endDate: Date,
+  ) {
+    return this.eventsService.findAllByDateRange(startDate, endDate);
+  }
+
   // update single event
   @Mutation(() => Event)
   updateEvent(@Args('updateEventInput') updateEventInput: UpdateEventInput) {

@@ -102,6 +102,7 @@ type Query {
   events: [Event!]!
   event(id: Int!): Event!
   eventsByGenre(genre: Genre!): [Event!]!
+  eventsByDateRange(startDate: DateTime!, endDate: DateTime!): [Event!]!
   registrations: [Registration!]!
   registration(id: Int!): Registration!
   reviews: [Review!]!

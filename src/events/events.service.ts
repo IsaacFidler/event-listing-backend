@@ -81,6 +81,36 @@ export class EventsService {
     });
   }
 
+  async findAllByDateRange(startDate: Date, endDate: Date) {
+    return await this.prisma.event.findMany({
+      where: {
+        OR: [
+          // Event starts within the range
+          {
+            startTime: {
+              gte: startDate,
+              lte: endDate,
+            },
+          },
+          // Event ends within the range
+          {
+            endTime: {
+              gte: startDate,
+              lte: endDate,
+            },
+          },
+          // Event spans the entire range
+          {
+            AND: [
+              { startTime: { lte: startDate } },
+              { endTime: { gte: endDate } },
+            ],
+          },
+        ],
+      },
+    });
+  }
+
   async update(id: number, updateEventInput: UpdateEventInput) {
     return (
       `This action updates a #${id} event` + JSON.stringify(updateEventInput)
