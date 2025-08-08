@@ -79,6 +79,23 @@ enum RegistrationStatus {
   NOT_ATTENDING
 }
 
+type Review {
+  """review id"""
+  id: Int!
+
+  """out of ten score for an event"""
+  score: Int!
+
+  """review description"""
+  description: String!
+
+  """review description"""
+  event: Event!
+
+  """review description"""
+  user: User!
+}
+
 type Query {
   users: [User!]!
   user(id: Int!): User
@@ -87,6 +104,8 @@ type Query {
   eventsByGenre(genre: Genre!): [Event!]!
   registrations: [Registration!]!
   registration(id: Int!): Registration!
+  reviews: [Review!]!
+  review(id: Int!): Review!
 }
 
 type Mutation {

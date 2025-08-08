@@ -89,9 +89,6 @@ model Event {
   location   Location @relation(fields: [locationId], references: [id])
   locationId Int
 
-  venue   Venue @relation(fields: [venueId], references: [id])
-  venueId Int
-
   //prisma relations
 
   artists       Artist[]
@@ -107,8 +104,6 @@ model Venue {
 
   location   Location @relation(fields: [locationId], references: [id])
   locationId Int
-
-  events Event[]
 }
 
 enum RegistrationStatus {
