@@ -46,6 +46,7 @@ type Event {
   createdAt: DateTime!
   updatedAt: DateTime
   capacity: Int
+  imageUrl: String
   creator: User
   location: Location
   artists: [Artist!]
@@ -138,6 +139,7 @@ input CreateEventInput {
   startTime: DateTime!
   endTime: DateTime!
   genre: Genre!
+  imageUrl: String
   userId: Int!
   locationId: Int!
   capacity: Int
@@ -150,6 +152,7 @@ input UpdateEventInput {
   startTime: DateTime
   endTime: DateTime
   genre: Genre
+  imageUrl: String
   userId: Int
   locationId: Int
   capacity: Int

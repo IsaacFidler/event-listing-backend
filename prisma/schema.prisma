@@ -81,6 +81,8 @@ model Event {
   createdAt   DateTime? @default(now()) @map("create_at")
   capacity    Int?      @default(100)
   genre       Genre
+  imageUrl    String?
+
 
   // fk relations
   creator User @relation(fields: [userId], references: [id])

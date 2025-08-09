@@ -40,6 +40,9 @@ export class Event {
   @Field(() => Int, { nullable: true })
   capacity?: number;
 
+  @Field({ nullable: true })
+  imageUrl?: string;
+
   // Fix these relationship fields:
   @Field(() => User, { nullable: true })
   creator?: User;

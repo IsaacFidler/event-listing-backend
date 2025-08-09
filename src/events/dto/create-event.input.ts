@@ -18,6 +18,9 @@ export class CreateEventInput {
   @Field(() => Genre)
   genre: Genre;
 
+  @Field({ nullable: true })
+  imageUrl?: string;
+
   @Field(() => Int)
   userId: number;
 
