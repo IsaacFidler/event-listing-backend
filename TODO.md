@@ -41,25 +41,25 @@
 
 ### Task 6: Apollo Client Setup (IN PROGRESS)
 
-- [ ] Install Apollo Client in Next.js frontend (`@apollo/client`, `graphql`)
-- [ ] Configure Apollo Client to connect to GraphQL backend (<http://localhost:3000/graphql>)
-- [ ] Set up Apollo Provider in `_app.tsx`
-- [ ] Test connection with a simple query
+- [x] Install Apollo Client in Next.js frontend (`@apollo/client`, `graphql`)
+- [x] Configure Apollo Client to connect to GraphQL backend (<http://localhost:3000/graphql>)
+- [x] Set up Apollo Provider in `_app.tsx`
+- [x] Test connection with a simple query
 
 ### Task 7: Build Basic Events List Page
 
-- [ ] Create events list component (`/events`)
-- [ ] Use Apollo Client to fetch events with GraphQL query
-- [ ] Display basic event cards with title, description, genre, capacity
-- [ ] Add loading and error states
-- [ ] Test backend `events` query from frontend
+- [x] Create events list component (`/events`)
+- [x] Use Apollo Client to fetch events with GraphQL query
+- [x] Display basic event cards with title, description, genre, capacity
+- [x] Add loading and error states
+- [x] Test backend `events` query from frontend
 
 ### Task 8: Style Events Page
 
-- [ ] Add proper styling to event cards (MUI X components)
-- [ ] Improve layout and spacing with styled-components
-- [ ] Add hover effects and animations
-- [ ] Make it responsive for mobile/desktop
+- [x] Add proper styling to event cards (MUI X components)
+- [x] Improve layout and spacing with styled-components
+- [x] Add hover effects and animations
+- [x] Make it responsive for mobile/desktop
 
 ---
 
